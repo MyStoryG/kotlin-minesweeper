@@ -1,15 +1,15 @@
 package model
 
 class BoardMaker {
-    fun run(boardHeight: BoardHeight, boardWidth: BoardWidth, mine: Mine): List<String> {
-        val board = MutableList(boardHeight.height * boardWidth.width - mine.size) { TILE }
-        val mines = MutableList(mine.size) { MINE }
-        board.addAll(mines)
-        return board.shuffled()
+    fun run(boardHeight: BoardHeight, boardWidth: BoardWidth, mines: List<Int>): List<Square> {
+        val board = MutableList(calculateBoardSize(boardHeight, boardWidth)) { Square(SquareType.TILE) }
+        mines.forEach { mine ->
+            board[mine] = Square(SquareType.MINE)
+        }
+        return board
     }
 
-    companion object {
-        private const val TILE = "C"
-        private const val MINE = "*"
+    private fun calculateBoardSize(boardHeight: BoardHeight, boardWidth: BoardWidth): Int {
+        return boardHeight.height * boardWidth.width
     }
 }
