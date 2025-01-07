@@ -4,17 +4,16 @@ import model.Square
 import model.SquareType
 
 object OutputView {
-    private const val TILE = "C"
-    private const val MINE = "*"
+    private const val UI_MINE = "*"
 
     fun showBoard(board: List<Square>, width: Int) {
         println("지뢰찾기 게임 시작")
         board.forEachIndexed { index, square ->
             if (square.type == SquareType.TILE) {
-                print("$TILE ")
+                print("${square.mineCount} ")
             }
             if (square.type == SquareType.MINE) {
-                print("$MINE ")
+                print("$UI_MINE ")
             }
             adjustWidth(index, width)
         }
