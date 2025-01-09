@@ -1,7 +1,9 @@
 package model
 
-class Mine(val size: Int) {
-    init {
-        require(size > 0) { "지뢰 개수는 0보다 커야 합니다." }
+class Mine {
+    companion object {
+        fun generateMines(boardHeight: BoardHeight, boardWidth: BoardWidth, mineSize: MineSize): List<Int> {
+            return (0 until (boardHeight.height * boardWidth.width)).shuffled().subList(0, mineSize.value)
+        }
     }
 }

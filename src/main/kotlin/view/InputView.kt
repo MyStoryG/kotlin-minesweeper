@@ -1,6 +1,6 @@
 package view
 
-class InputView {
+object InputView {
     fun getHeight(): Int {
         println("높이를 입력하세요.")
         return readln().toInt()

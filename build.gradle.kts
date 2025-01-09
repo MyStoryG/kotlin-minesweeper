@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.9.20"
     id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
 }
 
@@ -18,10 +18,10 @@ dependencies {
 
 tasks {
     compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = "17"
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = "17"
     }
     test {
         useJUnitPlatform()
